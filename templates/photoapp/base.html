@@ -2,10 +2,10 @@
 {% load static %}
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, inistial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="{% static "css/gray_simple.css" %}" />
-		<link href="{% static 'css/boootstrap-fluid-adj.css' %}" rel="stylesheet">
+		<link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
 		<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet"/>
 
@@ -64,7 +64,9 @@
 
 	
 	<!-- javascript put here so pages load faster -->
-	<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+  {% block scripts %}{% endblock %}
 	</body>
 </html>
