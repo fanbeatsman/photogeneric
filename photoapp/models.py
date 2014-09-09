@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 
 
@@ -18,5 +19,6 @@ class UserProfile(models.Model):
 
 class Picture(models.Model):
 	picture = models.ImageField(upload_to='pictures/%Y/%m/%d', blank=False)
+	title = models.CharField(_('Picture Title'), max_length=128, blank=False)
 	def __unicode__(self):
 		return "picture"

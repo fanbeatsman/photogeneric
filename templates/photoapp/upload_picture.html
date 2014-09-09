@@ -113,19 +113,22 @@
 <div id="awesome-container">
 <div id="picture-display">
 {% for image in allPictures %}
-	<img src="{{ image.picture.url }}">{{ image.picture.name }}
+	<img src="{{ image.picture.url }}">{{ image.title }}
 {% endfor %}
 
 {% else %}
 <p> No Pictures yet, Upload some! </p>
 
 {% endif %}
+<div id="caption">Photo Caption</div>
 </div>
 </div>
 <form action="/photoapp/upload_picture/", method="POST", enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.non_field_errors}}
-{{ form.picture.errors}} {{ form.picture }}
+{{ form.picture.errors}} 
+{{ form.picture }}
+{{ form.title}}
 <input type="submit" value=Upload/>
 </form>
 </div>

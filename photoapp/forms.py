@@ -16,6 +16,7 @@ class UserProfileForm(forms.ModelForm):
 
 class PictureForm(forms.ModelForm):
 	picture = forms.ImageField(label="Upload a Picture")
+	title = forms.CharField(label="Give it a snazzy title")
 	class Meta:
 		model = Picture
-		fields = ('picture', )
+		fields = ('picture', 'title')

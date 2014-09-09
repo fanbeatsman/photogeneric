@@ -68,7 +68,7 @@ function init(){
 
 }
 
-function handleSlideLoad(){
+function handlePictureLoad(){
 
 	/*storing picture widths*/
 	pictureWidths[$(this).data('picNum')] = $(this).width();
@@ -138,7 +138,55 @@ function handleSlideLoad(){
 	}
 
 	function centerCurrentPicture(){
+		var offsetFromStart = 0;
+		for (var i=0; i<currentPicture; i++) {
+			offsetFromStart += pictureWidths[i] + pictureHorizMargin*2;
+		}
+		/*finding horizontal center of the browser window, but i think the value is absolute of the hole viewport*/
+		var windowCenter = $(window).width()/2;
+		/*where is the left point of the current picture?*/
+		var leftPos = windowCenter - ( pictureWidths[currentPicture]/2) - pictureHorizMargin;
+		/*the actual absolute offset is the left absolute position MINUS all the offset
+		from the beginning*/ 
+		var actualOffset = leftPos - offsetFromStart;
+		$('#picture-display').stop().animate({left: actualOffset}, 300, 'easeOutBack');
+	}
 
+	function setButtonStates(){
+		if (currentPicture == 0){
+			$('#leftButton').hide();
+		}
+		else{
+			$('#leftButton').show();
+		}
+
+		 if (currentPicure == totalPictures - 1)
+		{
+			$('#rightButton').hide();
+		}
+		else{
+			$('#rightButton').show();
+		}
+	}
+
+	function addHoverText(element, text){
+		if('ontouchstart' in document.documentElement){
+			pictures[currentPicture].bind('touchstart', function(){
+				if ($('#caption').is(':visible')){
+					$('#caption').stop().clearQueue().fadeOut(captionSpeed);
+				}
+				else
+				{
+					$('#caption').stop().cleearQueue().fadeIn(captionSpeed, captionOpacity);
+				}
+			});
+		}
+		else{
+			pictures[currentPicture].hover(
+				function(){$('#caption').stop().fadeTo(captionSpeed, captionOpacity)},
+				function(){$('#caption').stop().fadeTo(captionSpeed, 0)}
+			);
+		}
 	}
 }
 
