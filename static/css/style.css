@@ -246,7 +246,7 @@ img {
 
 #caption{
     display:none;
-    margin-bottom: 90px;
+    bottom: 90px;
     color: #ffc;
     position: absolute;
     z-index: 2;

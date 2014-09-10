@@ -129,6 +129,7 @@ function centerCurrentPicture(){
 
 
 		$('#picture-display').animate({left: actualOffset}, 300, 'easeOutBack');
+
 	}
 
 	function setButtonState(){
@@ -224,5 +225,6 @@ $('.navbar').hover(function(){$('.navbar').fadeTo(100,1);}, function(){$('.navba
 $(function(){
 	init();
 	$('.btn search-query').css();
-	$('img').attr('alt','ASDSADSADSDQWERQERWETTERYFDHDF');
+	$('img').attr('alt','Image Caption');
+	$('hr').fadeTo(1,0);/* annoying hr*/
 })
