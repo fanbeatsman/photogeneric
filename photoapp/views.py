@@ -77,7 +77,7 @@ def upload_picture(request):
 	if request.method == 'POST':
 		form = PictureForm(request.POST, request.FILES)
 		if form.is_valid():
-			newPicture = Picture(picture = request.FILES['picture'], title = request.FILES['title'])
+			newPicture = Picture(picture = request.FILES['picture'])
 			newPicture.save()
 
 			return HttpResponseRedirect('/photoapp/upload_picture/')
