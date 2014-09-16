@@ -111,16 +111,19 @@
 <div class="row-fluid">
  <button id="leftButton" onclick='moveLeft()'>&lt;</button>
   <button id="rightButton" onclick='moveRight()'>&gt;</button>
-<div id="awesome-container">
-<div id="picture-display">
+<div class="awesome-container">
+<div class="packery tag-class">
 {% for image in allPictures %}
-	<img src="{{ image.picture.url }}" alt="{{ image.title }}"/>
+	<div class="item"><img src="{{ image.picture.url }}" alt="{{ image.title }}"/></div>
+  {{ image.title }}
+  {{ image.date }}
 {% endfor %}
 
 {% else %}
 <p> No Pictures yet, Upload some! </p>
 
 {% endif %}
+
 </div>
 <div id="caption">Photo Caption</div>
 </div>
@@ -147,6 +150,7 @@ Give it a snazzy title!
 
            <div class="nav-collapse collapse">
                <ul class="nav pull-right">
+               <button class="btn" id="switchView" onclick="">O</button>
                    {% if user.is_authenticated %}
 
         <li>
@@ -174,5 +178,5 @@ Give it a snazzy title!
 
 {% endblock %}
 {% block scripts %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script><script src="{% static 'js/jquery.mobile-1.4.3.js' %}"></script><script src="{% static 'js/photo2.js' %}"></script><script src="{% static 'js/photo3.js' %}"></script>{% endblock %}
+  <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script><script src="{% static 'js/jquery.mobile-1.4.3.js' %}"></script><script src="{% static 'js/isotope.js' %}"></script><script src="{% static 'js/packery-mode.js' %}"></script><script src="{% static 'js/imagesLoaded.js' %}"></script><script src="{% static 'js/draggabilly.js' %}"></script><script src="{% static 'js/photo2.js' %}"></script><script src="{% static 'js/photo3.js' %}"></script>{% endblock %}
 

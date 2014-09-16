@@ -77,8 +77,9 @@ def upload_picture(request):
 	if request.method == 'POST':
 		form = PictureForm(request.POST, request.FILES)
 		if form.is_valid():
-			newPicture = Picture(picture = request.FILES['picture'])
-			newPicture.save()
+			newPicture = Picture(picture = request.FILES['picture'], title = request.POST["title"])
+			picture = newPicture.save()
+			#picture.title = request.FILES.get('title', "No title :(")
 
 			return HttpResponseRedirect('/photoapp/upload_picture/')
 
@@ -88,9 +89,15 @@ def upload_picture(request):
 	allPictures = Picture.objects.all()
 
 	context_dict = {'allPictures': allPictures, 'form': form}
-	return render_to_response('photoapp/upload_picture.html', context_dict, context)
+	return render_to_response('photoapp/test.html', context_dict, context)
 	
-	
+def test(request):
+	context = RequestContext(request)	
+	allPictures = Picture.objects.all()
+
+	context_dict = {'allPictures': allPictures}
+	return render_to_response('photoapp/test.html', context_dict, context)
+
 
 
 
@@ -99,4 +106,6 @@ def upload_picture(request):
 def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect('/photoapp/')
+
+
 

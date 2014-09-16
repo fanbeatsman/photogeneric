@@ -34,7 +34,7 @@ function handlePictureLoad(){
 	/*storing picture widths*/
 	pictureWidths[$(this).data('picNum')] = $(this).width();
 	/* increase picture-display's div width to accomodate*/
-	$('#picture-display').width($('#picture-display').width() + $(this).width() + pictureHorizMargin*2);
+	$('.picture-display').width($('.picture-display').width() + $(this).width() + pictureHorizMargin*2);
 	/*record the fact that the picture has loaded*/
 	pictureLoaded[$(this).data('picNum')] = true;
 
@@ -48,8 +48,8 @@ function handlePictureLoad(){
 		}
 
 		if (preloaded == preloadPicture || preloaded == totalPictures){
-			$('#picture-display').css('top', 0);
-			$('#picture-display').fadeTo('fast', 1);
+			$('.picture-display').css('top', 0);
+			$('.picture-display').fadeTo('fast', 1);
 			$('#leftButton').css('height', buttonHeight);
 			$('#rightButton').css('height', buttonHeight);
 			$('#rightButton').show();
@@ -81,7 +81,7 @@ function moveLeft(){
 
 	/* move all to the right */
 	var offset = pictureWidths[currentPicture]/2 + pictureHorizMargin*2 + pictureWidths[currentPicture-1]/2;
-	$('#picture-display').animate({'left': '+=' + offset}); /*change this later*/
+	$('.picture-display').animate({'left': '+=' + offset}); /*change this later*/
 
 	/*out with the old and in with the new*/
 	pictures[currentPicture].animate( {opacity: backgroundPictureOpacity});
@@ -102,7 +102,7 @@ function moveRight(){
 
 	pictures[currentPicture].unbind('mouseenter').unbind('mouseleave').unbind('touchstart');
 	var offset = pictureWidths[currentPicture]/2 + pictureHorizMargin*2 + pictureWidths[currentPicture+1]/2;
-	$('#picture-display').stop().animate({left: '-=' + offset});	
+	$('.picture-display').stop().animate({left: '-=' + offset});	
 
 	pictures[currentPicture].animate( {opacity: backgroundPictureOpacity});
 	pictures[currentPicture+1].animate({opacity: currentPictureOpacity});
@@ -128,7 +128,7 @@ function centerCurrentPicture(){
 		var actualOffset = leftPos - offsetFromStart - 15; /* small correction, dont know why, must be cause of bootstrap again*/
 
 
-		$('#picture-display').animate({left: actualOffset}, 300, 'easeOutBack');
+		$('.picture-display').animate({left: actualOffset}, 300, 'easeOutBack');
 
 	}
 
@@ -171,19 +171,19 @@ function centerCurrentPicture(){
 
 
 	function init(){
-		pictureHorizMargin = parseInt($('#picture-display img').css('margin-left'));
+		pictureHorizMargin = parseInt($('.picture-display img').css('margin-left'));
 
 		/* hide gallery and buttons */
-		$('#picture-display').fadeTo(0,0);
-		$('#picture-display').css('top',"-999em");
+		$('.picture-display').fadeTo(0,0);
+		$('.picture-display').css('top',"-999em");
 		buttonHeight = $('#leftButton').css('height');
 		$('#leftButton').css('height',0);
 		$('#rightButton').css('height',0);
 
 		/*at load, do handlePictureLoad*/
-		$('#picture-display img').load(handlePictureLoad);
+		$('.picture-display img').load(handlePictureLoad);
 		/*storing pictures in picture array and counting them*/
-		$('#picture-display img').each(function(){
+		$('.picture-display img').each(function(){
 			/*$(this).hide();
 			$(this).data( 'picNum', totalPictures );
 			pictures[totalPictures++] = $(this);*/
@@ -205,7 +205,7 @@ function centerCurrentPicture(){
 
 	/*if ( !$.browser.msie ) {
 
-		$('#picture-display').swipe( {
+		$('.picture-display').swipe( {
 			swipeLeft: moveRight,
 			swipeRight: moveLeft,
 			threshold: { x:swipeXThreshold, y:swipeYThreshold }
@@ -217,14 +217,48 @@ $(document).keydown(function(event){
 	if (event.which == rightKeyCode) moveRight();
 });
 /*added an event for navbar fade in/out as mouse hovers . 2 event handlers for in and out*/
-$('.navbar').hover(function(){$('.navbar').fadeTo(100,1);}, function(){$('.navbar').fadeTo(100,0);});
+$('.navbar').fadeTo(200,0.5);
+$('.navbar').hover(function(){$('.navbar').fadeTo(100,1);}, function(){$('.navbar').fadeTo(100,0.5);});
+
+}
+
+function addswitchView(){
+
+	$('#switchView').click(function(){
+		$("img").toggleClass("smaller");
+		$(".tag-class").toggleClass("picture-display packery").init();
+
+	});
 
 }
 
 
 $(function(){
-	init();
+
+	//ISOTOPE TEST
+	var heights = new Array();
+	var heightsIndex = {};
+	var i = 0;
+	$('.packery img').each(function(){
+		heights.push($(this).css('height'));
+		heightsIndex[$(this).css('height')] = i;
+		i++;
+	});
+	var $container = $('.packery').packery({
+		columnWidth: 80,
+		rowHeight: 80
+	});
+	$container.find('.item').each( function( i, itemElem){
+		var draggie = new Draggabilly(itemElem);
+		$container.packery('bindDraggabillyEvents', draggie);
+
+	});
+
+	/*init();
+
 	$('.btn search-query').css();
 	$('img').attr('alt','Image Caption');
 	$('hr').fadeTo(1,0);/* annoying hr*/
-})
+	addswitchView();
+
+});
