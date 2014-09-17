@@ -45,7 +45,7 @@ body { font-family: sans-serif; }
 }
 
 .biggerPackery {
-  width: 500px;
+  width: auto;
   height: 550px;
 
   position: absolute;
@@ -72,6 +72,45 @@ body { font-family: sans-serif; }
 
 .biggerItem {
   height: 450px;
-  width: 675px;
+  width: auto;
 
+}
+
+#leftButton, #rightButton {
+  position: absolute;
+  z-index: 3;
+  top: -100px;
+  bottom: 0;
+  top:50px;
+  padding: 0;
+  margin: auto 0;
+  width: 15%;
+  height: 1000px;        /* Image height */
+  border: none;
+  outline: none;
+  color: #fff;
+  background: transparent url({% static 'img/blank.gif' %});
+  font-size: 100px;
+  font-family: "Courier New", courier, fixed;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+#leftButton{
+  left:0;
+}
+#rightButton{
+  right:0;
+}
+
+
+
+#leftButton:hover, #rightButton:hover {
+  opacity:.5;
+  filter: alpha(opactiy=50);
+  outline:none;
 }

@@ -5,10 +5,21 @@ function addSwitchViews(containerNudge){
 		$("img").toggleClass("biggerImage");
 		$(".item").toggleClass("biggerItem");
 
+		$(".packery").packery({
+			"isHorizontal":true
+		});
+
 	});
 }
 
+function centerImage(){
+	var offset = 0;
+	$("img").each(function(){
 
+		$(this).width();
+		
+	});
+}
 
 
 $(function(){
