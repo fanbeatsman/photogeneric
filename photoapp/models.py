@@ -20,6 +20,7 @@ class UserProfile(models.Model):
 class Picture(models.Model):
 	picture = models.ImageField(upload_to='pictures/%Y/%m/%d', blank=False)
 	date = models.DateField(auto_now_add=True)
+	#time = models.TimeField(auto_now_add=True)
 	title = models.CharField(_('Picture Title'), max_length=128, blank=False)
 	def __unicode__(self):
 		return "picture"

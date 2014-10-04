@@ -7,64 +7,66 @@
 {% endblock %}
 {% block body_block %}
 
-TEST PAGE
-<button id="leftButton" onclick='moveLeft()'>&lt;</button>
-<button id="rightButton" onclick='moveLeft()'>&gt;</button>
-<div class="gallery packery">
-{% for image in allPictures %}
-	<div class="item"> <img src="{{ image.picture.url }}" alt="{{ image.title }}"/></div>
-{% endfor %}
+<div class="test">TEST PAGE<span></span></div>
+<!--<button id="leftButton" onclick='moveLeft()'>&lt;</button>
+  <button id="rightButton" onclick='moveLeft()'>&gt;</button>-->
+  <div class="conteiner">
+    <div id="skrollr-body"class="gallery packery" >
+      {% for image in allPictures %}
+      <div class="item"> <img src="{{ image.picture.url }}" alt="{{ image.title }}" date="{{ image.date }}"/></div>
+      {% endfor %}
 
-</div>
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-   <div class="navbar-inner">
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+     <div class="navbar-inner">
        <div class="container">
-           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-           </button>
-<form class="navbar-search pull-left form-inline" action="/photoapp/upload_picture/", method="POST", enctype="multipart/form-data" style="">
+         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <form class="navbar-search pull-left form-inline" action="/photoapp/upload_picture/", method="POST", enctype="multipart/form-data" style="">
 
-{% csrf_token %}
-{{ form.non_field_errors}}
-{{ form.picture.errors}} 
-{{ form.picture }}
-Give it a snazzy title!
-{{ form.title}}
+          {% csrf_token %}
+          {{ form.non_field_errors}}
+          {{ form.picture.errors}} 
+          {{ form.picture }}
+          Give it a snazzy title!
+          {{ form.title}}
 
-<input class = "btn search-query"  style="float: right" style="height: 40px"type="submit" value=Upload/>
-</form>
+          <input class = "btn search-query"  style="float: right" style="height: 40px"type="submit" value=Upload/>
+        </form>
 
-           <div class="nav-collapse collapse">
-               <ul class="nav pull-right">
-               <button class="btn" id="switchView" >O</button>
-                   {% if user.is_authenticated %}
+        <div class="nav-collapse collapse">
+         <ul class="nav pull-right">
+           <button class="btn" id="switchView" >S</button>
+           <button class="btn" id="historyMode" >H</button>
+           {% if user.is_authenticated %}
 
-        <li>
+           <li>
 
-                        {% if user.userprofile.picture %}
-                                <img src = "{{ user.userprofile.picture.url }}" height="100px" width="100px"alt="profile pic">
-                        {% endif %}
-                    </li>
+            {% if user.userprofile.picture %}
+            <img src = "{{ user.userprofile.picture.url }}" height="100px" width="100px"alt="profile pic">
+            {% endif %}
+          </li>
 
-                    <li class="navbar-text">Welcome, {{ user.username }}!</li>
-                    <li> <a href = '/photoapp/upload_picture/'>Upload a Picture!</a></li>
-                    <li>      <a href="/photoapp/logout/">Logout</a></li>
-                   {% else %}
-                    <li><a href="/photoapp/register/">Register</a></li>
-                    <li><a href="/photoapp/login/">Login</a></li>
-               </ul>
-               <ul class="nav"></ul>
-                   {% endif %}
+          <li class="navbar-text">Welcome, {{ user.username }}!</li>
+          <li> <a href = '/photoapp/upload_picture/'>Upload a Picture!</a></li>
+          <li>      <a href="/photoapp/logout/">Logout</a></li>
+          {% else %}
+          <li><a href="/photoapp/register/">Register</a></li>
+          <li><a href="/photoapp/login/">Login</a></li>
+        </ul>
+        <ul class="nav"></ul>
+        {% endif %}
 
-           </div>
-           <!--/.nav-collapse -->
-       </div>
-   </div>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
 </div>
-
+</div>
 {% endblock %}
 
 {% block scripts %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script><script src="{% static 'js/jquery.mobile-1.4.3.js' %}"></script><script src="{% static 'js/isotope.js' %}"></script><script src="{% static 'js/testisotope.js' %}"></script><script src="{% static 'js/packery-mode.js' %}"></script><script src="{% static 'js/imagesLoaded.js' %}"></script><script src="{% static 'js/draggabilly.js' %}"></script>{% endblock %}
+  <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script><script src="{% static 'js/jquery.mobile-1.4.3.js' %}"></script><script src="{% static 'js/isotope.js' %}"></script><script src="{% static 'js/testisotope.js' %}"></script><script src="{% static 'js/packery-mode.js' %}"></script><script src="{% static 'js/imagesLoaded.js' %}"></script><script src="{% static 'js/draggabilly.js' %}"></script><script src="{% static 'js/skrollr.js' %}"></script>{% endblock %}

@@ -99,7 +99,12 @@ def test(request):
 	return render_to_response('photoapp/test.html', context_dict, context)
 
 
+def poker_cast(request):
+	context = RequestContext(request)
+	
 
+	context_dict = {}
+	return render_to_response('photoapp/pokercast.html', context_dict, context)
 
 @login_required
 
