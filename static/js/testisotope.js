@@ -65,18 +65,12 @@ function addhistoryMode(button){
 		$('.packery').toggleClass("fullscreen");
 		$("img").toggleClass("historyImg");
 		
-
-		/*$(window).scroll(function(event){
-			event.preventDefault();
-			items[x].fadeToggle();
-			//$('span').text(x+=1);
-			//items[x].fadeToggle();
-		});*/
 skrollr.init({
                 forceHeight: false
         });
 //$(".item").toggleClass("historyItem");
-
+//couldnt find answer to this, what i did is for each item, givce it a cummulatve margin made of all 
+//its previous items' widths combined
 var marginCount = 0;
 $('.item').each(function(){
 	$(this).attr('style',("margin-left:"+marginCount+";"+"position:fixed;"))
