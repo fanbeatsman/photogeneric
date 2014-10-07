@@ -5,9 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'photogeneric.views.home', name='home'),
+    url(r'^$', 'frontpage.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
     url(r'photoapp/', include('photoapp.urls')),
 )
