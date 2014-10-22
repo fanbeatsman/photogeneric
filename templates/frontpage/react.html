@@ -1,0 +1,56 @@
+<!-- template.html -->
+{% load static %}
+<html>
+<head>
+  <title>Hello React</title>
+  <script src="http://fb.me/react-0.11.2.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.11.2.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<link href="{% static 'css/fractal.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div id="content"></div>
+  <script type="text/jsx">
+    /** @jsx React.DOM */
+      // The above declaration must remain intact at the top of the script.
+      // Your code here
+      var CommentList=React.createClass({
+       render: function(){
+        return(
+         <div className="commentList">
+           i am comment List
+         </div>
+         );
+      }
+    });
+
+      var CommentForm=React.createClass({
+       render: function(){
+        return(<div className="commentForm">
+         I am the Comment Forrm
+       </div>
+       );
+      }
+    });
+
+      var CommentBox = React.createClass({
+        render: function() {
+          return (
+            <div className="commentBox">
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
+              Hello, world! I am a CommentBox.
+            </div>
+            );
+        }
+      });
+      React.renderComponent(
+        <CommentBox />,
+        document.getElementById('content')
+        );
+
+    </script>
+    <script type="text/javascript" src="{% static 'js/fractal.js' %}"></script> <!--needed to  put this after body, cause the body hasen't even loaded yet and you get document.body is null-->
+</body>
+  </html>

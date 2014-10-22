@@ -1,0 +1,48 @@
+body {
+
+
+}
+
+.col-md-2{
+	height:100%;
+	z-index:10;
+
+}
+.col-md-3{
+	height:100%;
+	z-index:10;
+	
+}
+
+#background{
+	position:fixed;
+	display: block;
+	margin: 0 auto;
+	height:100%;
+	width:100%;
+	left:0px;
+	top:0px;
+	z-index: 0;
+	opacity: 35%;
+}
+
+#backgroundimg{
+	position:absolute;
+	display: block;
+	margin: 0 auto;
+	height:100%;
+	width:100%;
+	left:0px;
+	top:0px;
+	z-index: 0;
+	opacity: 0.35;
+}
+
+.banners{
+	position:absolute;
+	margin: 0 auto;
+	height:100%;
+	width:100%;
+	left:0px;
+	top:0px;
+}
