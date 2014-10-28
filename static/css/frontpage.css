@@ -22,7 +22,7 @@ body {
 	width:100%;
 	left:0px;
 	top:0px;
-	z-index: 0;
+	z-index: -5001;
 	opacity: 35%;
 }
 
@@ -31,10 +31,10 @@ body {
 	display: block;
 	margin: 0 auto;
 	height:100%;
-	width:100%;
+	width:120%;
 	left:0px;
 	top:0px;
-	z-index: 0;
+	z-index: -5000;
 	opacity: 0.35;
 }
 
@@ -45,4 +45,46 @@ body {
 	width:100%;
 	left:0px;
 	top:0px;
+}
+
+.centered-top{
+	  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+button{
+	width:100px;
+
+}
+.centered{
+	  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button{
+	width:100px;
+
+}
+
+
+.btn{
+}
+.btn:hover{
+	background-color:#383B37;
+	color:#CED9CC;
+}
+
+.view, .backview{
+	display: hidden;
+	background-color: #727871;
+	border-radius: 25px;
+
+}
+
+.text{
+	margin:15px;
 }
