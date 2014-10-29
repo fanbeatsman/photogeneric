@@ -19,8 +19,6 @@ $(".banners").hover(
 
 $(".Intro").click(
 	function(){
-		//$('.backview').toggle("fast");
-	//	$('.backview').toggle("fast");
 		$('.introtext').toggle("fast");
 
 	});

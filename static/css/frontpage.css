@@ -82,9 +82,12 @@ button{
 	display: hidden;
 	background-color: #727871;
 	border-radius: 25px;
-
 }
 
 .text{
+
+	position:relative;
 	margin:15px;
+	margin-bottom:15px; 
+	margin-top:15px;
 }
