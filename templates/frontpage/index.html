@@ -1,11 +1,14 @@
 <!-- template.html -->
 {% load static %}
+
 <html>
 <head>
 	<title>Fan Ma</title>
     <link rel="stylesheet" href="{% static 'css/reveal.min.css' %}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/frontpage.css' %}">
 </head>
 <body>
@@ -53,17 +56,19 @@
 
     </script>
     
-    <div class="share-reveal" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;">
-        <a href="http://github.com/fanbeatsman" class="btn btn-github"><i class="fa fa-github"></i></a>
-             ghdhdghdghdg<a href="https://twitter.com/revealjs" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @revealjs</a>
+    <div class="social-icons" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;" align="center">
+        <a href="http://github.com/fanbeatsman" align="center"><img src="{% static 'img/icons/github.png' %}"></a>
+        <a href="http://stackoverflow.com/users/3839010/fan-ma"><img src="{% static 'img/icons/stackoverflow.png' %}"></a>
+        <a href="http://stackoverflow.com/users/2178566/michael-ho"><i class="fa fa-stack-overflow fa-4x"></i></a>
+             
     
         </div>
    
 
     <script>
 			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
-				document.querySelector( '.share-reveal' ).style.display = 'block';
-				document.querySelector( '.fork-reveal' ).style.display = 'block';
+				document.querySelector( '.social-icons' ).style.display = 'block';
+				//document.querySelector( '.fork-reveal' ).style.display = 'block';
 			}
 		</script>
 </body>
