@@ -1,4 +1,4 @@
-
+//replaced
 var colors=[{}]
 
 function init(){
