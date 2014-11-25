@@ -5,6 +5,7 @@
 <head>
 	<title>Fan Ma</title>
     <link rel="stylesheet" href="{% static 'css/reveal.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
@@ -17,7 +18,7 @@
       <div class="slides">
       <section>
         <h2>Fan Ma</h2>
-           <img class="bullet" src="{% static 'img/' %}" />
+           <img class="bullet" src="{% static 'img/fan.jpg' %}" />
         <b> On the Road, Ready to Code</b>
       </section>
           
@@ -56,11 +57,12 @@
 
     </script>
     
-    <div class="social-icons" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;" align="center">
-        <a href="http://github.com/fanbeatsman" align="center"><img src="{% static 'img/icons/github.png' %}"></a>
-        <a href="http://stackoverflow.com/users/3839010/fan-ma"><img src="{% static 'img/icons/stackoverflow.png' %}"></a>
-        <a href="http://stackoverflow.com/users/2178566/michael-ho"><i class="fa fa-stack-overflow fa-4x"></i></a>
-             
+    <div class="social-icons" style="display: none; position: relative; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;" align="center">
+      
+        
+        <a href="http://github.com/fanbeatsman" class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+        <a class="btn btn-social-icon btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-linkedin']);"><i class="fa fa-linkedin"></i></a>
+        <a href="http://stackoverflow.com/users/3839010/fan-ma" class="btn btn-social-icon btn-stack-overflow"><i class="fa fa-stack-overflow"></i></a>
     
         </div>
    

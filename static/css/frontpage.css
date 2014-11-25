@@ -10,6 +10,11 @@
 	
 }
 
+.bullet{
+    height: 400px;
+    float: left;
+   
+}
 #background{
 	position:fixed;
 	display: block;
