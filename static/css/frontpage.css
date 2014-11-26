@@ -9,6 +9,13 @@
 	z-index:10;
 	
 }
+.title{
+    font-family: "Century Gothic", Times, serif;
+}
+
+h3{
+    font-size: 1px;
+}
 
 .bullet{
     height: 400px;
