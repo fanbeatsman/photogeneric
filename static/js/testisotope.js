@@ -25,19 +25,18 @@ function addhistoryMode(button){
                 forceHeight: false
         });*/
 
-
-		var dates = new Array();
+		
+		var dates = new Array();	
 		var i =0;
 		var f = 0;
 		$("img").each(function(){
-
-		$(this).attr("data-"+String(f),"opacity: 1;");
-		$(this).attr("data-"+String(f+500),"opacity: 0.4;")
+		$(this).attr("data-"+String(f),"opacity: 0;");
+		$(this).attr("data-"+String(f+500),"opacity: 1;")
 		items.push($(this));	
 		dates[i]=$(this).attr("date");
 		i++;
 		f=f+500;
-
+		//$(this).attr('style',("opacity:0;"));
 		images.push($(this));
 	});
 
@@ -45,39 +44,51 @@ function addhistoryMode(button){
 		var j=0;
 
 		$('.item').each(function(){
-		$(this).attr("data-"+String(j),"opacity: 1;");
-		$(this).attr("data-"+String(j+500),"opacity: 0;")
+		$(this).attr("data-"+String(j),"opacity: 0;");
+		$(this).attr("data-"+String(j+500),"opacity: 1;")
+
 		items.push($(this));
 		j=j+500;
 
 });
 
-
+		$( ".test" ).html( "history mode is" )
 
 		console.log(images);
 		console.log(images[x]);
 		dates.sort(function(a,b){
 			return new Date(b.date)-new Date(a.date);
 		});
-		//$('.item').fadeToggle();
 		$('.navbar').fadeToggle();
-		$('.packery').attr('style','height:2000px;width:100%;position:absolute;top:0px;left:0px;');
-		$('.packery').toggleClass("fullscreen");
 		$("img").toggleClass("historyImg");
 		
 skrollr.init({
-                forceHeight: false
+                //forceHeight: false
         });
+		var bodyHeight = $(document).height();
+		$('.packery').attr('style','height:' + bodyHeight +'px;width:100%;position:absolute;top:0px;left:0px;');
 //$(".item").toggleClass("historyItem");
 //couldnt find answer to this, what i did is for each item, givce it a cummulatve margin made of all 
 //its previous items' widths combined
 var marginCount = 0;
+
 $('.item').each(function(){
-	$(this).attr('style',("margin-left:"+marginCount+";"+"position:fixed;"))
+	$(this).attr('style',("opacity:0;"+"align:center;"+"position:fixed; size:100%;"))
 	marginCount = marginCount + $(this).css("width");
 });
+//reupdate packery
+$(".packery").packery({
+			"isHorizontal":true
+		});
 
 	});
+//$('.item').each(function(){
+//	$(this).attr('style',("opacity:0;"+"margin-left:"+marginCount+";"+"position:fixed;"))
+//	marginCount = marginCount + $(this).css("width");
+//});
+
+//	});
+
 }
 
 function centerImage(){

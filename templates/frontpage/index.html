@@ -4,15 +4,17 @@
 <html>
 <head>
 	<title>Fan Ma</title>
-    <link rel="stylesheet" href="{% static 'css/reveal.min.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/reveal.min.css' %}">-->
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/littleboxes.css' %}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/frontpage.css' %}">
+<!--<link rel="stylesheet" href="{% static 'css/frontpage.css' %}">-->
 </head>
 <body>
+<!--
 <div class="reveal">
 
       <div class="slides">
@@ -25,6 +27,73 @@
           
     </div>
     </div>
+
+-->
+
+
+<div id="littleBoxes" class="littleBoxes">
+    <div class="boxlink bg1" style="top:0px;left:0px;">
+        <a href="">About</a>
+        <div class="boxcontent">
+            <p>  I am an undergraduate at McGill University, Montreal currently pursuing a major in Computer Science and Neuroscience. Primarily a web developper, I enjoy coming up with nice UIs and delivering a solid UX. When I am at the research lab I intern at, I reinvest this passion into data visualization.
+            </p>
+        </div>
+    </div>
+    <div class="bg5"
+            style="background-position:-90px 0;top:0px;left:95px;"></div>
+    <div class="bg5"
+            style="background-position:-180px 0;top:0px;left:190px;"></div>
+    <div class="bg5"
+            style="background-position:-270px 0;top:0px;left:285px;"></div>
+ 
+    <div class="bg5"
+            style="background-position:0 -90px;top:95px;left:0px;"></div>
+    <div class="boxlink bg2"
+            style="top:95px;left:95px;">
+        <a href="">Antmap</a>
+        <div class="boxcontent">
+            <p>Webapp that parses data strings and aggregates the data into a SQL database. Django backend ensures reliable MVC control flow and leverages the backend data to coordinate a frontend visualization including map location and dynamically ordered tables.
+            </p>
+            <p>Demo: <button font-size="3em" class="antmap-btn"></p>
+        </div>
+    </div>
+    <div class="bg5"
+            style="background-position:-180px -90px;top:95px;left:190px;"></div>
+    <div class="bg5"
+            style="background-position:-270px -90px;top:95px;left:285px;"></div>
+ 
+    <div class="bg5"
+            style="background-position:0 -180px;top:190px;left:0px;"></div>
+    <div class="bg5"
+            style="background-position:-90px -180px;top:190px;left:95px;"></div>
+    <div class="boxlink bg3"
+            style="top:190px;left:190px;">
+        <a href="">Photogeneric</a>
+        <div class="boxcontent">
+            <p>Lightweight photo gallery app done for a friend photographer. It features 2 visualization methods "S" (linear) and "H" (history mode). Again, it sits atop a Django backend, but with the bulk of its logic in the frontend held together with an array of libraries such as JQuery, Packery, Skrollr and Bootstrap.
+            </p>
+            <p>Demo: <button font-size="3em" class="photogeneric-btn"></p>
+        </div>
+    </div>
+    <div class="bg5"
+            style="background-position:-270px -180px;top:190px;left:285px;"></div>
+ 
+    <div class="bg5"
+            style="background-position:0 -270px;top:285px;left:0px;"></div>
+    <div class="bg5"
+            style="background-position:-90px -270px;top:285px;left:95px;"></div>
+    <div class="bg5"
+            style="background-position:-180px -270px;top:285px;left:190px;"></div>
+    <div class="boxlink bg4"
+            style="top:285px;left:285px;">
+        <a href="">Pokercast</a>
+        <div class="boxcontent">
+            <p>The fruit of my first hackathon and first time working in collaboration with other people. Pokercast is a poker game built on the Chromecast that allows up to 6 players to play poker. The board is displayed on a TV and each player's hand is displayed on their smartphone. It includes a RESTful backend server, an iOS app and a frontend composed of a browser based UI and Chromecast API.
+            </p>
+        </div>
+    </div>
+</div>
+
 
 <!-- scripts -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -58,12 +127,12 @@
 
     </script>
     
-    <div class="social-icons" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;" align="center">
+    <div class="social-icons" style="display: none; position: absolute; bottom: 14px; left: 46%;  z-index: 20;" align="center">
       
         
-        <a href="http://github.com/fanbeatsman" class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
-        <a class="btn btn-social-icon btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-linkedin']);"><i class="fa fa-linkedin"></i></a>
-        <a href="http://stackoverflow.com/users/3839010/fan-ma" class="btn btn-social-icon btn-stack-overflow"><i class="fa fa-stack-overflow"></i></a>
+        <a href="http://github.com/fanbeatsman" class="btn btn-social-icon btn-lg btn-github"><i class="fa fa-github" ></i></a>
+        <a href="https://www.linkedin.com/profile/view?id=284781182&trk=nav_responsive_tab_profile_pic" class="btn btn-social-icon btn-lg btn-linkedin" ><i class="fa fa-linkedin"></i></a>
+        <a href="http://stackoverflow.com/users/3839010/fan-ma" class="btn btn-social-icon btn-lg btn-stack-overflow"><i class="fa fa-stack-overflow"></i></a>
     
         </div>
    
@@ -74,5 +143,6 @@
 				//document.querySelector( '.fork-reveal' ).style.display = 'block';
 			}
 		</script>
+    <script src="{% static 'js/photo.js' %}"></script>
 </body>
 </html>

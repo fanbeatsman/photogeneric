@@ -85,4 +85,14 @@
                         }
                         e.preventDefault();
                 });
+
+            $(".antmap-btn").click(
+                function(){
+                    window.open('http://107.170.115.204:8080/antmap/antlist/');
+                })
+            $(".photogeneric-btn").click(
+                function(){
+                    window.open("http://107.170.115.204/photoapp/upload_picture/");
+                })
+
             });
