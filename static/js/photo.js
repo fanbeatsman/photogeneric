@@ -94,5 +94,8 @@
                 function(){
                     window.open("http://107.170.115.204/photoapp/upload_picture/");
                 })
-
+            $(".xmas-btn").click(
+                function(){
+                    window.open("http://107.170.115.204:3000/index.html");
+                })
             });
