@@ -87,3 +87,18 @@ body{
 .demo-btn{
 	
 }
+
+a{
+    color:#294A8F;
+}
+
+.btn-github:hover{
+  color: #171717;
+}
+.btn-linkedin:hover{
+  color: #007bb6;
+}
+
+.btn-stack-overflow:hover{
+  color: #F27928;
+}
